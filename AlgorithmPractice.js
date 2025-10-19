@@ -1,6 +1,12 @@
+function isNumeric(x) {
+  return ["number", "bigint"].includes(typeof x);
+}
+
 function biggestIntegerInArray(...input) {
 
     if (input.length===0) throw new Error("The input array does not contain any elements");
+
+    if (!input.every(isNumeric)) throw new TypeError("The input array should contain only numbers");
 
     //Retrict inputs to Integers
     let maxElement = input[0];
@@ -29,5 +35,3 @@ function isPalindrome(inputString) {
 // console.log(biggestIntegerInArray(20, -5, 10, 5, 1, 0))
 
 console.log(isPalindrome("level"))
-
-console.log(biggestIntegerInArray())
